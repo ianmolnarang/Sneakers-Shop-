@@ -9,9 +9,11 @@ import {
 } from "react-native";
 import React from "react";
 import CartListItem from "../components/CartListItem";
-import cart from "../data/cart";
+import { useSelector } from "react-redux";
 
 const shoppingCartTotal = ()=>(
+
+
   <View style={styles.subtotalContainer}>
     <View style={styles.row}>
       <Text style={styles.text}>Subtotal</Text>
@@ -30,15 +32,17 @@ const shoppingCartTotal = ()=>(
   </View>
 );
 const ShoppingCart = () => {
+
+  const cartItems  = useSelector((state)=> state.cart.items)
   return (
     <>
       <FlatList
-        data={cart}
+        data={cartItems}
         renderItem={({ item }) => <CartListItem cartItem={item} />}
         ListFooterComponent={shoppingCartTotal}
       />
       <Pressable style={styles.button}>
-        <Text style={styles.buttonText}>Add to cart</Text>
+        <Text style={styles.buttonText}>CheckOut</Text>
       </Pressable>
     </>
   );

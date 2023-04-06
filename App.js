@@ -3,7 +3,7 @@ import React from "react";
 import { StyleSheet, Text, View, Image, FlatList } from "react-native";
 import Navigation from "./src/Navigation";
 import { Provider } from "react-redux";
-import store from "./src/store";
+import {store} from "./src/store";
 
 export default function App() {
   return (

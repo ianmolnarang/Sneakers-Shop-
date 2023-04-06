@@ -9,8 +9,9 @@ import {
 import React from "react";
 import products from "../data/products";
 import { useDispatch, useSelector } from "react-redux";
-
+import { productsSlice } from "../store/productSlice";
 const ProductsScreen = ({ navigation }) => {
+  const dispatch = useDispatch() ; 
   const products = useSelector((state) => state.products.products);
 
   return (
@@ -19,7 +20,13 @@ const ProductsScreen = ({ navigation }) => {
         data={products}
         renderItem={({ item }) => (
           <Pressable
-            onPress={() => navigation.navigate("Product Details")}
+            onPress={() =>{
+             //update selected products 
+             
+               dispatch(productsSlice.actions.setSelectedProduct(item.id)) ;
+               
+
+               navigation.navigate("Product Details")}}
             style={styles.itemConatiner}
           >
             <Image

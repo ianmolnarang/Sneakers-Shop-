@@ -16,6 +16,7 @@ const CartListItem = ({ cartItem }) => {
         <View style={styles.footer}>
           <Feather
             onPress={increaseQuantity}
+           
             name="minus-circle"
             size={24}
             color="gray"
